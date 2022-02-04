@@ -18,11 +18,13 @@ autom4te.cache
 /compile
 /config.cache
 /config.guess
-/config.h.in
+/config.h
+/config.h.in~
 /config.log
 /config.status
 /config.sub
 /configure
+/configure~
 /configure.scan
 /depcomp
 /install-sh
@@ -32,6 +34,9 @@ autom4te.cache
 # https://www.gnu.org/software/libtool/
 
 /ltmain.sh
+*.la
+*.lo
+*/.libs/*
 
 # http://www.gnu.org/software/texinfo
 
@@ -52,3 +57,8 @@ m4/lt~obsolete.m4
 Makefile
 
 .DS_Store
+
+# build output
+*.o
+tools/dt
+tools/pmgr

@@ -85,11 +85,14 @@ POST_INSTALL = :
 NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
-build_triplet = aarch64-apple-darwin21.2.0
-host_triplet = aarch64-apple-darwin21.2.0
+build_triplet = x86_64-apple-darwin20.6.0
+host_triplet = x86_64-apple-darwin20.6.0
 subdir = .
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
-am__aclocal_m4_deps = $(top_srcdir)/configure.ac
+am__aclocal_m4_deps = $(top_srcdir)/m4/libtool.m4 \
+	$(top_srcdir)/m4/ltoptions.m4 $(top_srcdir)/m4/ltsugar.m4 \
+	$(top_srcdir)/m4/ltversion.m4 $(top_srcdir)/m4/lt~obsolete.m4 \
+	$(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
 DIST_COMMON = $(srcdir)/Makefile.am $(top_srcdir)/configure \
@@ -156,7 +159,7 @@ am__define_uniq_tagged_files = \
 DIST_SUBDIRS = $(SUBDIRS)
 am__DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/config.h.in AUTHORS \
 	COPYING ChangeLog INSTALL NEWS README.md compile config.guess \
-	config.sub depcomp install-sh ltmain.sh missing
+	config.sub install-sh ltmain.sh missing
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 distdir = $(PACKAGE)-$(VERSION)
 top_distdir = $(distdir)
@@ -201,14 +204,14 @@ distuninstallcheck_listfiles = find . -type f -print
 am__distuninstallcheck_listfiles = $(distuninstallcheck_listfiles) \
   | sed 's|^\./|$(prefix)/|' | grep -v '$(infodir)/dir$$'
 distcleancheck_listfiles = find . -type f -print
-ACLOCAL = ${SHELL} '/Users/rickmark/Developer/libapplefw/missing' aclocal-1.16
+ACLOCAL = ${SHELL} '/Users/ericgallager/Documents/GitHub/libapplefw/missing' aclocal-1.16
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
 AR = ar
-AUTOCONF = ${SHELL} '/Users/rickmark/Developer/libapplefw/missing' autoconf
-AUTOHEADER = ${SHELL} '/Users/rickmark/Developer/libapplefw/missing' autoheader
-AUTOMAKE = ${SHELL} '/Users/rickmark/Developer/libapplefw/missing' automake-1.16
-AWK = awk
+AUTOCONF = ${SHELL} '/Users/ericgallager/Documents/GitHub/libapplefw/missing' autoconf
+AUTOHEADER = ${SHELL} '/Users/ericgallager/Documents/GitHub/libapplefw/missing' autoheader
+AUTOMAKE = ${SHELL} '/Users/ericgallager/Documents/GitHub/libapplefw/missing' automake-1.16
+AWK = gawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
 CFLAGS = -g -O2
@@ -224,11 +227,11 @@ DUMPBIN =
 ECHO_C = \c
 ECHO_N = 
 ECHO_T = 
-EGREP = /usr/bin/grep -E
+EGREP = /opt/local/bin/ggrep -E
 ETAGS = etags
 EXEEXT = 
-FGREP = /usr/bin/grep -F
-GREP = /usr/bin/grep
+FGREP = /opt/local/bin/ggrep -F
+GREP = /opt/local/bin/ggrep
 INSTALL = /usr/bin/install -c
 INSTALL_DATA = ${INSTALL} -m 644
 INSTALL_PROGRAM = ${INSTALL}
@@ -243,9 +246,9 @@ LIPO = lipo
 LN_S = ln -s
 LTLIBOBJS = 
 LT_SYS_LIBRARY_PATH = 
-MAKEINFO = ${SHELL} '/Users/rickmark/Developer/libapplefw/missing' makeinfo
+MAKEINFO = ${SHELL} '/Users/ericgallager/Documents/GitHub/libapplefw/missing' makeinfo
 MANIFEST_TOOL = :
-MKDIR_P = ./install-sh -c -d
+MKDIR_P = /opt/local/bin/gmkdir -p
 NM = /usr/bin/nm -B
 NMEDIT = nmedit
 OBJDUMP = objdump
@@ -261,15 +264,15 @@ PACKAGE_URL =
 PACKAGE_VERSION = 0.1
 PATH_SEPARATOR = :
 RANLIB = ranlib
-SED = /usr/bin/sed
+SED = /opt/local/bin/gsed
 SET_MAKE = 
 SHELL = /bin/sh
 STRIP = strip
 VERSION = 0.1
-abs_builddir = /Users/rickmark/Developer/libapplefw
-abs_srcdir = /Users/rickmark/Developer/libapplefw
-abs_top_builddir = /Users/rickmark/Developer/libapplefw
-abs_top_srcdir = /Users/rickmark/Developer/libapplefw
+abs_builddir = /Users/ericgallager/Documents/GitHub/libapplefw
+abs_srcdir = /Users/ericgallager/Documents/GitHub/libapplefw
+abs_top_builddir = /Users/ericgallager/Documents/GitHub/libapplefw
+abs_top_srcdir = /Users/ericgallager/Documents/GitHub/libapplefw
 ac_ct_AR = ar
 ac_ct_CC = gcc
 ac_ct_DUMPBIN = 
@@ -279,10 +282,10 @@ am__quote =
 am__tar = $${TAR-tar} chof - "$$tardir"
 am__untar = $${TAR-tar} xf -
 bindir = ${exec_prefix}/bin
-build = aarch64-apple-darwin21.2.0
+build = x86_64-apple-darwin20.6.0
 build_alias = 
-build_cpu = aarch64
-build_os = darwin21.2.0
+build_cpu = x86_64
+build_os = darwin20.6.0
 build_vendor = apple
 builddir = .
 datadir = ${datarootdir}
@@ -290,15 +293,15 @@ datarootdir = ${prefix}/share
 docdir = ${datarootdir}/doc/${PACKAGE_TARNAME}
 dvidir = ${docdir}
 exec_prefix = ${prefix}
-host = aarch64-apple-darwin21.2.0
+host = x86_64-apple-darwin20.6.0
 host_alias = 
-host_cpu = aarch64
-host_os = darwin21.2.0
+host_cpu = x86_64
+host_os = darwin20.6.0
 host_vendor = apple
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /Users/rickmark/Developer/libapplefw/install-sh
+install_sh = ${SHELL} /Users/ericgallager/Documents/GitHub/libapplefw/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -320,6 +323,7 @@ top_build_prefix =
 top_builddir = .
 top_srcdir = .
 SUBDIRS = include src tools
+DISTCLEANFILES = *~
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-recursive
 
@@ -715,6 +719,7 @@ clean-generic:
 distclean-generic:
 	-test -z "$(CONFIG_CLEAN_FILES)" || rm -f $(CONFIG_CLEAN_FILES)
 	-test . = "$(srcdir)" || test -z "$(CONFIG_CLEAN_VPATH_FILES)" || rm -f $(CONFIG_CLEAN_VPATH_FILES)
+	-test -z "$(DISTCLEANFILES)" || rm -f $(DISTCLEANFILES)
 
 maintainer-clean-generic:
 	@echo "This command is intended for maintainers to use"

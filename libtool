@@ -1,6 +1,6 @@
 #! /bin/sh
 # Generated automatically by config.status (libdt) 0.1
-# Libtool was configured on host Nouvau:
+# Libtool was configured on host Local-Admins-MacBook-Pro.local:
 # NOTE: Changes made to this file will be lost: look at ltmain.sh.
 
 # Provide generalized library-building support services.
@@ -67,28 +67,28 @@ PATH_SEPARATOR=":"
 
 # The host system.
 host_alias=
-host=aarch64-apple-darwin21.2.0
-host_os=darwin21.2.0
+host=x86_64-apple-darwin20.6.0
+host_os=darwin20.6.0
 
 # The build system.
 build_alias=
-build=aarch64-apple-darwin21.2.0
-build_os=darwin21.2.0
+build=x86_64-apple-darwin20.6.0
+build_os=darwin20.6.0
 
 # A sed program that does not truncate output.
-SED="/usr/bin/sed"
+SED="/opt/local/bin/gsed"
 
 # Sed that helps us avoid accidentally triggering echo(1) options like -n.
 Xsed="$SED -e 1s/^X//"
 
 # A grep program that handles long lines.
-GREP="/usr/bin/grep"
+GREP="/opt/local/bin/ggrep"
 
 # An ERE matcher.
-EGREP="/usr/bin/grep -E"
+EGREP="/opt/local/bin/ggrep -E"
 
 # A literal string matcher.
-FGREP="/usr/bin/grep -F"
+FGREP="/opt/local/bin/ggrep -F"
 
 # A BSD- or MS-compatible name lister.
 NM="/usr/bin/nm -B"
@@ -369,7 +369,7 @@ module_expsym_cmds="sed -e 's|^|_|' < \$export_symbols > \$output_objdir/\$libna
 with_gnu_ld="no"
 
 # Flag that allows shared libraries with undefined symbols to be built.
-allow_undefined_flag="\$wl-undefined \${wl}dynamic_lookup"
+allow_undefined_flag="\$wl-flat_namespace \$wl-undefined \${wl}suppress"
 
 # Flag that enforces no undefined symbols.
 no_undefined_flag=""
@@ -2619,7 +2619,7 @@ fi
 # a configuration failure hint, and exit.
 func_fatal_configuration ()
 {
-    func__fatal_error ${1+"$@"} \
+    func_fatal_error ${1+"$@"} \
       "See the $PACKAGE documentation for more information." \
       "Fatal configuration error."
 }
