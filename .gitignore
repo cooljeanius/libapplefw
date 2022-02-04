@@ -16,6 +16,8 @@ autom4te.cache
 /autoscan-*.log
 /aclocal.m4
 /compile
+/conf*.awk
+/confdefs.h
 /config.cache
 /config.guess
 /config.h
@@ -26,6 +28,7 @@ autom4te.cache
 /configure
 /configure~
 /configure.scan
+/conftest*
 /depcomp
 /install-sh
 /missing
@@ -33,6 +36,7 @@ autom4te.cache
 
 # https://www.gnu.org/software/libtool/
 
+/libtool
 /ltmain.sh
 *.la
 *.lo
