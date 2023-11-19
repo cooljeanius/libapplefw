@@ -74,14 +74,14 @@ jobs:
         if test -r Makefile; then (make check && make distcheck); fi
         # shellcheck disable=SC2001,SC2235
         for subdir in example include src src/lzfse tools; do \
-          if test -e "${subdir}/Makefile" && test -n "$(ls "${subdir}"/*.c)"; then \
+          if test -e "${subdir}/Makefile" && test -n "$(ls "${subdir}"/*.c 2>/dev/null)"; then \
             pushd "${subdir}"; \
             for srcfile in *.c; do \
               echo "attempting to use $(which make) to compile ${srcfile} in ${subdir}"; \
               make "$(echo "${srcfile}" | sed "s/\.c/.o/g")" V=0 CFLAGS="-w" || stat -t "${srcfile}"; \
             done; \
             popd; \
-          elif test -d "${subdir}" && (test -r "${subdir}/Makefile.in" || test -r "${subdir}/Makefile.am"); then \
+          elif test -d "${subdir}" && test ! -e "${subdir}/Makefile" && (test -r "${subdir}/Makefile.in" || test -r "${subdir}/Makefile.am"); then \
             echo "no unsuffixed Makefile in ${subdir}, but there are these ones with suffixes:"; \
             ls ${subdir}/Makefile* || echo "... $(ls ${subdir}/Makefile*)"; \
           else \
@@ -90,7 +90,7 @@ jobs:
         done
         (time (find . -name '*.o' -exec cp -v {} . ";")) || echo "failed copying an object file"
         FINAL_CPPFLAGS="-I."
-        for myincdir in include include/applefw src/lzfse; do \
+        for myincdir in .. include ../include include/applefw src/lzfse; do \
           if test -d "${myincdir}" && test -r "${myincdir}" && test -n "$(ls "${myincdir}"/*.h)"; then \
             FINAL_CPPFLAGS="${FINAL_CPPFLAGS} -I${myincdir} -iquote ${myincdir}"; \
           fi; \
