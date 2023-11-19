@@ -74,7 +74,7 @@ jobs:
         if test -r Makefile; then (make check && make distcheck); fi
         # shellcheck disable=SC2001,SC2235
         for subdir in example include src src/lzfse tools; do \
-          if test -e "${subdir}/Makefile"; then \
+          if test -e "${subdir}/Makefile" && test -n "$(ls "${subdir}"/*.c)"; then \
             pushd "${subdir}"; \
             for srcfile in *.c; do \
               echo "attempting to use $(which make) to compile ${srcfile} in ${subdir}"; \
