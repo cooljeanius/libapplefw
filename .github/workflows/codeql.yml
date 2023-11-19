@@ -91,7 +91,7 @@ jobs:
         (time (find . -name '*.o' -exec cp -v {} . ";")) || echo "failed copying an object file"
         FINAL_CPPFLAGS="-I."
         for myincdir in .. include ../include include/applefw src/lzfse; do \
-          if test -d "${myincdir}" && test -r "${myincdir}" && test -n "$(ls "${myincdir}"/*.h)"; then \
+          if test -d "${myincdir}" && test -r "${myincdir}" && test -n "$(ls "${myincdir}"/*.h 2>/dev/null)"; then \
             FINAL_CPPFLAGS="${FINAL_CPPFLAGS} -I${myincdir} -iquote ${myincdir}"; \
           fi; \
         done
